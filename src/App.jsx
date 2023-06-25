@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import MenuList from './components/MenuList/MenuList'
 import DisplayCharacter from './components/DisplayCharacter/DisplayCharacter'
-import s from './style.module.css'
+import Badge from 'react-bootstrap/Badge';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 function App() {
 
@@ -12,20 +14,24 @@ function App() {
   }
 
   return (
-    <div>
-     <h1 style={{ textAlign:'center' }}>Select your favorite character </h1>
-     <div className={ s.workspace }>
+    <Container>
+   
+      <h1 > <Badge bg="secondary"> Select your favorite character </Badge>  </h1>
+
+      <Row>
+
         <MenuList 
           onItemClick={onMenuListItemClick}
           character={currentCharacter}
         />
 
         <DisplayCharacter character={currentCharacter} />
-        
 
-     </div>
+      </Row>
+
+
     
-    </div>
+    </Container>
   )
 }
 

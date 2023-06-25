@@ -1,54 +1,30 @@
-import { useState } from 'react'
-import PropTypes from 'prop-types'
-import s from './style.module.css'
 
-const MenuItem = ( props) =>{
-    const [isHovered,setIsHover] = useState(false)
+import PropTypes from "prop-types";
+import ListGroup from "react-bootstrap/ListGroup";
 
-    const activate = () =>{
-        setIsHover(true)
-    }
+const MenuItem = (props) => {
+ 
 
-    const desactivate = () => {
-        setIsHover(false)
-    }
 
-    const getBackgroundColor = () => {
-        if (isHovered) {
-          return '#a5e9ff'
-        } else {
-          if (props.isSelected) {
-            return '#26baea'
-          } else {
-            return '#eff0ef'
-          }
-        }
-    }
+  const onItemClick = () => {
+    props.onClick(props.character);
+  };
 
-    const onItemClick = () => {
-        props.onClick(props.character)
-      }
+  return (
+   
+      <ListGroup.Item as="li"  
+      onClick={onItemClick} 
+      active={props.isSelected}>
+        {props.character.name}
+      </ListGroup.Item>
+ 
+  );
+};
 
-    return (
-        <div
-            className={s.container}
-            onClick={onItemClick}
-            onMouseEnter={activate}
-            onMouseLeave={desactivate}
-            style={{ backgroundColor: getBackgroundColor()}}
-        >
-            Name is {props.character.name}
-        </div>
-    )
-
-    
-
-}
-
-export default MenuItem
+export default MenuItem;
 
 MenuItem.propTypes = {
-    onClick: PropTypes.func,
-    character: PropTypes.object,
-    isSelected: PropTypes.bool,
-  }
+  onClick: PropTypes.func,
+  character: PropTypes.object,
+  isSelected: PropTypes.bool,
+};
