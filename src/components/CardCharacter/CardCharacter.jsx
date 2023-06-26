@@ -1,12 +1,14 @@
 import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types'
 
+
 const CardCharacter = ( props) => (
-    <Card style={{ width: '18rem' }}>
+   
+
+    <Card >
         <Card.Img 
             variant='top' 
-            width={300} 
-            height={300}  
+           height={300}
             src={props.character.profile}
         />
         <Card.Body>
@@ -19,6 +21,8 @@ const CardCharacter = ( props) => (
 
 
     </Card>
+    
+   
 )
 
 export default CardCharacter

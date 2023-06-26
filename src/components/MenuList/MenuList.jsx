@@ -8,9 +8,9 @@ import ListGroup from 'react-bootstrap/ListGroup';
 // Staless
  const MenuList = ( props) => (
   
-<>
+    <>
          <Col sm={4}>
-         <ListGroup as="ul">
+         <ListGroup as="ul"  style={{marginBottom:30}}>
             { CHARACTERS.map((character) => (
                 <MenuItem
                     key={character.id+"_character"}
@@ -23,6 +23,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
          </ListGroup>
         </Col>
          <Col md={{ span: 3, offset: 2 }}></Col>
+        
          </>
 
  )
